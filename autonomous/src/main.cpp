@@ -73,7 +73,7 @@ void driveForward(int rotations, int timeT){ //gets the motors to drive forward 
 
 }
 
-void driveForwardPID(int rotationsError){
+void driveForwardPID(int rotationsError){ //Small function and corrects the driving actively
 
   Motor1.spinFor(forward, rotationsError, turns);
   Motor1.spinFor(forward, rotationsError, turns);
@@ -319,6 +319,7 @@ int analyseActions(){
       ofs << motor3Torque1;
       ofs << motor4Torque1;
       ofs << temperatureChange1;
+      ofs << "\n";
 
       ofs.close();
       
@@ -469,46 +470,22 @@ int main() {
   everything is pushed at the end
   
   */
-
   //Phase 1
-  driveForward(175, 500);
-  resetPID();
-  turnLeft(90, 500);
+  driveForward(160, 345);
+  Brain.Screen.print("Done \n");
+  turnLeft(56, 150);
+  Brain.Screen.print("Done 2 \n"); //Debugging comments to understand how the the code is working, and indeed if it reaches a point.
 
   //Phase 2
-  driveForward(175, 500);
-  resetPID();
-  turnLeft(90, 500);
-
-  //Phase 3
-  driveForward(175, 500);
-  resetPID();
-  turnleft(90, 500);
-
-  //Phase 4
-  driveForward(175, 500);
-  resetPID();
-  turnLeft(135, 500);
-
-  //Phase 5
-  driveForward(175, 500);
-  resetPID();
-  driveBackward(175, 100);
-  resetPID();
-  driveForward(175, 500);
-  resetPID();
-  driveBackward(175, 100);
-  resetPID();
-  driveForward(175, 500);
-  resetPID();
-  driveBackward(175, 100);
-  resetPID();
-
+  driveForward(160, 550);
+  Brain.Screen.print("Done 3 \n");
+  turnLeft(110, 150);
+  driveForward(160, 135);
+  wait(500, msec);
+  Brain.Screen.print("Done 3 \n");
 
   
   
-  
-
 
   
 }
